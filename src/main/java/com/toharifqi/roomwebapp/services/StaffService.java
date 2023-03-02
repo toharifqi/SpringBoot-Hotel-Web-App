@@ -2,10 +2,12 @@ package com.toharifqi.roomwebapp.services;
 
 import com.toharifqi.roomwebapp.models.Position;
 import com.toharifqi.roomwebapp.models.StaffMember;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class StaffService {
     private static final List<StaffMember> staffs = new ArrayList<>();
 
@@ -30,7 +32,7 @@ public class StaffService {
         staffs.add(new StaffMember("de8e222e-dcb1-42e3-bcaf-b0aff93527c3", "Burke", "Tammy", Position.SECURITY));
     }
 
-    public static List<StaffMember> getStaffs() {
+    public List<StaffMember> getStaffs() {
         return staffs;
     }
 }

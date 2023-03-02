@@ -10,9 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/rooms")
 public class RoomController {
 
+    private RoomService roomService;
+
+    public RoomController(RoomService roomService) {
+        this.roomService = roomService;
+    }
+
     @GetMapping
     public String getAllRooms(Model model) {
-        model.addAttribute("rooms", RoomService.getRooms());
+        model.addAttribute("rooms", roomService.getRooms());
         return "rooms";
     }
 }

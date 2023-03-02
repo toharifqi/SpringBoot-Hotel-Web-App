@@ -1,10 +1,12 @@
 package com.toharifqi.roomwebapp.services;
 
 import com.toharifqi.roomwebapp.models.Room;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class RoomService {
     private static final List<Room> rooms = new ArrayList<>();
 
@@ -14,7 +16,7 @@ public class RoomService {
         }
     }
 
-    public static List<Room> getRooms() {
+    public List<Room> getRooms() {
         return rooms;
     }
 }
