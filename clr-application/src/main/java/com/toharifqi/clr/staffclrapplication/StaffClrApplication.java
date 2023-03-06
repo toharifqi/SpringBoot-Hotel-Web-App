@@ -1,4 +1,4 @@
-package com.toharifqi.clr.roomclrapplication;
+package com.toharifqi.clr.staffclrapplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @SpringBootApplication
-public class RoomClrApplication {
+public class StaffClrApplication {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RoomClrApplication.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StaffClrApplication.class);
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -28,19 +28,18 @@ public class RoomClrApplication {
     public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
         return args -> {
             LOG.info("Starting CLR application");
-            ResponseEntity<List<Room>> rooms = restTemplate.exchange(
-                    "http://localhost:8080/api/rooms",
+            ResponseEntity<List<StaffMember>> staffs = restTemplate.exchange(
+                    "http://localhost:8080/api/staffs",
                     HttpMethod.GET,
                     null,
-                    new ParameterizedTypeReference<List<Room>>() {}
+                    new ParameterizedTypeReference<List<StaffMember>>() {}
             );
-            rooms.getBody().forEach( room -> LOG.info(room.toString()));
-            LOG.info("Finishing CRL application");
+            staffs.getBody().forEach( staff -> LOG.info(staff.toString()));
+            LOG.info("Finishing CLR application");
         };
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(RoomClrApplication.class, args);
+        SpringApplication.run(StaffClrApplication.class, args);
     }
-
 }
