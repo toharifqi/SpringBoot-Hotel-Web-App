@@ -1,22 +1,20 @@
 package com.toharifqi.roomwebapp.services;
 
+import com.toharifqi.roomwebapp.data.RoomRepository;
 import com.toharifqi.roomwebapp.models.Room;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RoomService {
-    private static final List<Room> rooms = new ArrayList<>();
+    private final RoomRepository roomRepository;
 
-    static {
-        for (int i = 0; i < 10; i++) {
-            rooms.add(new Room(i, "Room " + i, "R" + i, "Q"));
-        }
+    public RoomService(RoomRepository roomRepository) {
+        this.roomRepository = roomRepository;
     }
 
     public List<Room> getRooms() {
-        return rooms;
+        return roomRepository.findAll();
     }
 }
