@@ -10,10 +10,10 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="NAME")
+    @Column(name="ROOM_NUMBER")
     private String number;
 
-    @Column(name="ROOM_NUMBER")
+    @Column(name="NAME")
     private String name;
 
     @Column(name="BED_INFO")

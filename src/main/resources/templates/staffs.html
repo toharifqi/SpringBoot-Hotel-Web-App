@@ -12,7 +12,7 @@
     <th>Position</th>
   </tr>
   <tr th:each="staff:${staffs}">
-    <td th:text="${staff.gUID}">ID</td>
+    <td th:text="${staff.gEmployeeId}">ID</td>
     <td th:text="${staff.firstName + ' ' + staff.lastName}">Name</td>
     <td th:text="${staff.position}">Position</td>
   </tr>
